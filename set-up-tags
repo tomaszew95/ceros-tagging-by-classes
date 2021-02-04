@@ -20,13 +20,13 @@
                         function pageChangedCallback(){
                             
                             for(let objectName of objectsNames){
-                                if(experience.findLayersByTag(objectName)){
+                                if(experience.findLayersByTag(objectName) != null){
                                     objects.push(experience.findLayersByTag(objectName))
                                 }
-                                else if (experience.findComponentsByTag(objectName)){
+                                else if (experience.findComponentsByTag(objectName) != null){
                                     objects.push(experience.findComponentsByTag(objectName))
                                 }
-                                else if (experience.findSyncedObjectsByTag(objectName)){
+                                else if (experience.findSyncedObjectsByTag(objectName) != null){
                                     objects.push(experience.findSyncedObjectsByTag(objectName))
                                 }
                                 else(
