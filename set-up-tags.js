@@ -20,7 +20,7 @@ var objects = new Array();
 
                 if(objectsNames.length > 0){
                     console.log('it works2');
-                    console.log(experience.findLayersByTag(objectsNames[0]));
+                    console.log(experience.findLayersByTag(objectsNames[0]).components);
                     for(let i = 0; i<objectsNames.length; i++){
                         switch(true){
                             case isNaN(experience.findLayersByTag(objectsNames[i]).components.length > 0):
