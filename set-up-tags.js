@@ -19,8 +19,8 @@ var objects = new Array();
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback); 
                     function pageChangedCallback(){
                         if(objectsNames.length > 0){
-                            for(let objectName of objectsNames){
-                                let objName = objectName.toString();
+                            for(let i = 0; i<objectsNames.length; i++){
+                                let objName = objectsNames[i].toString();
                                 switch(true){
                                     case experience.findLayersByTag(objName).components.length > 0:
                                         objects.push(experience.findLayersByTag(objName));
@@ -29,7 +29,7 @@ var objects = new Array();
                                     case experience.findSyncedObjectsByTag(objName).components.length > 0:
                                         objects.push(experience.findSyncedObjectsByTag(objName));
                                     default:
-                                        console.error("undefined tag name");
+                                        console.error("undefined tag name: " + objectsNames[i]);
                                 }
                             }
                         }
@@ -37,7 +37,7 @@ var objects = new Array();
                             console.error("array 'objectNames' is empty")
                         }
 
-                        for(var i = 0; i<objects.length; i++){ 
+                        for(let i = 0; i<objects.length; i++){ 
                             objects[i].layers.forEach(function(component){ 
                                 var id = '#' + component.id; 
                                 $(id).addClass(objectsNames[i]); 
