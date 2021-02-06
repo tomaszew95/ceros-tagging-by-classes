@@ -29,6 +29,7 @@ var objects = new Array();
                             case (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
                                 console.log("it works3");
                                 objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
+                                break;
                             default:
                                 console.error("undefined tag name: " + objectsNames[i]);
                         }
