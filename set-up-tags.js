@@ -1,5 +1,5 @@
-var objectsNames = new Array();
-var objects = new Array();
+var objectsNames;
+var objects;
 (function(){ 
     'use strict'; 
     require.config({ 
