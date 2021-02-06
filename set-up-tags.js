@@ -22,6 +22,7 @@ var objects = new Array();
                             for(let i = 0; i<objectsNames.length; i++){
                                 switch(true){
                                     case (experience.findLayersByTag(objectsNames[i]).components.length > 0):
+                                        console.log("it works1");
                                         objects.push(experience.findLayersByTag(objectsNames[i]));
                                     case (experience.findComponentsByTag(objectsNames[i]).components.length > 0):
                                         console.log("it works2");
