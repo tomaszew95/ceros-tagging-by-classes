@@ -15,38 +15,35 @@ var objects = new Array();
             }) 
             .done(function (experience) { 
                 window.myExperience = experience; 
+                
+                if(objectsNames.length > 0){
+                    for(let i = 0; i<objectsNames.length; i++){
+                        console.log(experience.findLayersByTag(objectsNames[i]).components.length > 0);
+                        switch(true){
+                            case isNaN(experience.findLayersByTag(objectsNames[i]).components.length > 0):
+                                console.log("it works1");
+                                objects.push(experience.findLayersByTag(objectsNames[i]));
+                            case isNaN(experience.findComponentsByTag(objectsNames[i]).components.length > 0):
+                                console.log("it works2");
+                                objects.push(experience.findComponentsByTag(objectsNames[i]));
+                            case isNaN(experience.findSyncedObjectsByTag(objectsNames[i]).components.length > 0):
+                                console.log("it works3");
+                                objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
+                            default:
+                                console.error("undefined tag name: " + objectsNames[i]);
+                        }
+                    }
+                }
+                else{
+                    console.error("array 'objectNames' is empty")
+                }
 
-                experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback); 
-                    function pageChangedCallback(){
-                        if(objectsNames.length > 0){
-                            for(let i = 0; i<objectsNames.length; i++){
-                                console.log(experience.findLayersByTag(objectsNames[i]).components.length > 0);
-                                switch(true){
-                                    case isNaN(experience.findLayersByTag(objectsNames[i]).components.length > 0):
-                                        console.log("it works1");
-                                        objects.push(experience.findLayersByTag(objectsNames[i]));
-                                    case isNaN(experience.findComponentsByTag(objectsNames[i]).components.length > 0):
-                                        console.log("it works2");
-                                        objects.push(experience.findComponentsByTag(objectsNames[i]));
-                                    case isNaN(experience.findSyncedObjectsByTag(objectsNames[i]).components.length > 0):
-                                        console.log("it works3");
-                                        objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
-                                    default:
-                                        console.error("undefined tag name: " + objectsNames[i]);
-                                }
-                            }
-                        }
-                        else{
-                            console.error("array 'objectNames' is empty")
-                        }
-
-                        for(let i = 0; i<objects.length; i++){ 
-                            objects[i].layers.forEach(function(component){ 
-                                var id = '#' + component.id; 
-                                $(id).addClass(objectsNames[i]); 
-                            });  
-                        }
-                    } 
+                for(let i = 0; i<objects.length; i++){ 
+                    objects[i].layers.forEach(function(component){ 
+                        var id = '#' + component.id; 
+                        $(id).addClass(objectsNames[i]); 
+                    });  
+                }   
             }) 
     }); 
 })();
