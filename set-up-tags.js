@@ -1,4 +1,3 @@
-console.log("it works");
 var objectsNames = new Array();
 var objects = new Array();
 (function(){ 
@@ -18,17 +17,16 @@ var objects = new Array();
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback); 
                     function pageChangedCallback(){
-                        console.log("it works2");
                         
-                        if(objectsNames != null){
+                        if(objectsNames.length > 0){
                             for(let objectName of objectsNames){
-                                if(experience.findLayersByTag(objectName) != null){
+                                if(experience.findLayersByTag(objectName).length > 0){
                                     objects.push(experience.findLayersByTag(objectName))
                                 }
-                                else if (experience.findComponentsByTag(objectName) != null){
+                                else if (experience.findComponentsByTag(objectName).length > 0){
                                     objects.push(experience.findComponentsByTag(objectName))
                                 }
-                                else if (experience.findSyncedObjectsByTag(objectName) != null){
+                                else if (experience.findSyncedObjectsByTag(objectName).length > 0){
                                     objects.push(experience.findSyncedObjectsByTag(objectName))
                                 }
                                 else(
@@ -37,7 +35,7 @@ var objects = new Array();
                             }
                         }
                         else{
-                            console.error("arr 'objectNames' is empty")
+                            console.error("array 'objectNames' is empty")
                         }
 
                         for(var i = 0; i<objects.length; i++){ 
