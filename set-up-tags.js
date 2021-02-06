@@ -20,7 +20,7 @@ var objects = new Array();
                     function pageChangedCallback(){
                         if(objectsNames.length > 0){
                             for(let i = 0; i<objectsNames.length; i++){
-                                console.log("it works0");
+                                console.log(experience.findComponentsByTag(objectsNames[0]).components.length > 0);
                                 switch(true){
                                     case (experience.findLayersByTag(objectsNames[i]).components.length > 0):
                                         console.log("it works1");
