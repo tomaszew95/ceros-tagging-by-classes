@@ -2,6 +2,7 @@ var tagsToClassses = document.getElementById("ceros-tags-to-classes-plugin");
 var objectsNames = tagsToClassses.getAttribute("objects-names").split(" ");
 var objects = new Array();
 (function(){ 
+    console.log('it works0');
     'use strict'; 
     require.config({ 
         paths: { 
@@ -15,8 +16,10 @@ var objects = new Array();
             }) 
             .done(function (experience) { 
                 window.myExperience = experience; 
-                
+                console.log('it works1');
+
                 if(objectsNames.length > 0){
+                    console.log('it works2');
                     for(let i = 0; i<objectsNames.length; i++){
                         console.log(experience.findLayersByTag(objectsNames[i]).components.length > 0);
                         switch(true){
