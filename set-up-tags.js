@@ -18,23 +18,19 @@ var objects = new Array();
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback); 
                     function pageChangedCallback(){
-                        console.log(objectsNames);
-                        console.log(objectsNames[0]);
-                        
                         if(objectsNames.length > 0){
                             for(let objectName of objectsNames){
-                                if(experience.findLayersByTag(objectName.toString()).components.length > 0){
-                                    objects.push(experience.findLayersByTag(objectName))
+                                let objName = objectName.toString();
+                                switch(true){
+                                    case experience.findLayersByTag(objName).components.length > 0:
+                                        objects.push(experience.findLayersByTag(objName));
+                                    case experience.findComponentsByTag(objName).components.length > 0:
+                                        objects.push(experience.findComponentsByTag(objName));
+                                    case experience.findSyncedObjectsByTag(objName).components.length > 0:
+                                        objects.push(experience.findSyncedObjectsByTag(objName));
+                                    default:
+                                        console.error("undefined tag name");
                                 }
-                                else if (experience.findComponentsByTag(objectName.toString()).components.length > 0){
-                                    objects.push(experience.findComponentsByTag(objectName))
-                                }
-                                else if (experience.findSyncedObjectsByTag(objectName.toString()).components.length > 0){
-                                    objects.push(experience.findSyncedObjectsByTag(objectName))
-                                }
-                                else(
-                                    console.error("undefined tag name")
-                                )
                             }
                         }
                         else{
