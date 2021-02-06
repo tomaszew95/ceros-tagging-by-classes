@@ -20,13 +20,13 @@ var objects = new Array();
                     console.log(experience.findLayersByTag(objectsNames[0]).layers.length);
                     for(let i = 0; i<objectsNames.length; i++){
                         switch(true){
-                            case isNaN(experience.findLayersByTag(objectsNames[i]).layers.length > 0):
+                            case (experience.findLayersByTag(objectsNames[i]).layers.length > 0):
                                 console.log("it works1");
                                 objects.push(experience.findLayersByTag(objectsNames[i]));
-                            case isNaN(experience.findComponentsByTag(objectsNames[i]).components.length > 0):
+                            case (experience.findComponentsByTag(objectsNames[i]).components.length > 0):
                                 console.log("it works2");
                                 objects.push(experience.findComponentsByTag(objectsNames[i]));
-                            case isNaN(experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
+                            case (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
                                 console.log("it works3");
                                 objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
                             default:
