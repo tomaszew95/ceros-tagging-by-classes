@@ -21,10 +21,12 @@ var objects = new Array();
                         if(objectsNames.length > 0){
                             for(let i = 0; i<objectsNames.length; i++){
                                 let objName = objectsNames[i].toString();
+                                console.log("it works1");
                                 switch(true){
                                     case experience.findLayersByTag(objName).components.length > 0:
                                         objects.push(experience.findLayersByTag(objName));
                                     case experience.findComponentsByTag(objName).components.length > 0:
+                                        console.log("it works2");
                                         objects.push(experience.findComponentsByTag(objName));
                                     case experience.findSyncedObjectsByTag(objName).components.length > 0:
                                         objects.push(experience.findSyncedObjectsByTag(objName));
