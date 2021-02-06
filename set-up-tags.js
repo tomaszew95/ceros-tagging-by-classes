@@ -20,16 +20,14 @@ var objects = new Array();
                     function pageChangedCallback(){
                         if(objectsNames.length > 0){
                             for(let i = 0; i<objectsNames.length; i++){
-                                let objName = objectsNames[i].toString();
-                                console.log("it works1");
                                 switch(true){
-                                    case experience.findLayersByTag(objName).components.length > 0:
-                                        objects.push(experience.findLayersByTag(objName));
-                                    case experience.findComponentsByTag(objName).components.length > 0:
+                                    case (experience.findLayersByTag(objectsNames[i]).components.length > 0):
+                                        objects.push(experience.findLayersByTag(objectsNames[i]));
+                                    case (experience.findComponentsByTag(objectsNames[i]).components.length > 0):
                                         console.log("it works2");
-                                        objects.push(experience.findComponentsByTag(objName));
-                                    case experience.findSyncedObjectsByTag(objName).components.length > 0:
-                                        objects.push(experience.findSyncedObjectsByTag(objName));
+                                        objects.push(experience.findComponentsByTag(objectsNames[i]));
+                                    case (experience.findSyncedObjectsByTag(objectsNames[i]).components.length > 0):
+                                        objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
                                     default:
                                         console.error("undefined tag name: " + objectsNames[i]);
                                 }
