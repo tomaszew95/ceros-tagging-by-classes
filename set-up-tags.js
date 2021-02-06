@@ -1,4 +1,5 @@
-var objectsNames;
+var tagsToClassses = document.getElementById("ceros-tags-to-classes-plugin");
+var objectsNames = tagsToClassses.getAttribute("objects-names").toArray();
 var objects;
 (function(){ 
     'use strict'; 
@@ -17,18 +18,18 @@ var objects;
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback); 
                     function pageChangedCallback(){
-                        console.log(experience.findComponentsByTag('box'));
-                        console.log(experience.findComponentsByTag('box').components);
+                        console.log(objectsNames);
+                        console.log(objectsNames[0]);
                         
                         if(objectsNames.length > 0){
                             for(let objectName of objectsNames){
-                                if(experience.findLayersByTag(objectName).length > 0){
+                                if(experience.findLayersByTag(objectName.toString()).length > 0){
                                     objects.push(experience.findLayersByTag(objectName))
                                 }
-                                else if (experience.findComponentsByTag(objectName).length > 0){
+                                else if (experience.findComponentsByTag(objectName.toString()).length > 0){
                                     objects.push(experience.findComponentsByTag(objectName))
                                 }
-                                else if (experience.findSyncedObjectsByTag(objectName).length > 0){
+                                else if (experience.findSyncedObjectsByTag(objectName.toString()).length > 0){
                                     objects.push(experience.findSyncedObjectsByTag(objectName))
                                 }
                                 else(
