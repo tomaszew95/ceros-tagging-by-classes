@@ -1,5 +1,5 @@
 var tagsToClassses = document.getElementById("ceros-tags-to-classes-plugin");
-var objectsNames = tagsToClassses.getAttribute("objects-names").split(" ");
+var objectsNames = tagsToClassses.getAttribute("objects-names").split(" "); 
 var objects;
 (function(){ 
     'use strict'; 
