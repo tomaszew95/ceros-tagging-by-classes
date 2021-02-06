@@ -17,6 +17,8 @@ var objects = new Array();
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback); 
                     function pageChangedCallback(){
+                        console.log(experience.findComponentsByTag('box'));
+                        console.log(experience.findComponentsByTag('box').components);
                         
                         if(objectsNames.length > 0){
                             for(let objectName of objectsNames){
