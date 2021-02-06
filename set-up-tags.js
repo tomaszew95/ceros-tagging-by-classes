@@ -20,6 +20,7 @@ var objects = new Array();
                     function pageChangedCallback(){
                         if(objectsNames.length > 0){
                             for(let i = 0; i<objectsNames.length; i++){
+                                console.log("it works0");
                                 switch(true){
                                     case (experience.findLayersByTag(objectsNames[i]).components.length > 0):
                                         console.log("it works1");
@@ -28,6 +29,7 @@ var objects = new Array();
                                         console.log("it works2");
                                         objects.push(experience.findComponentsByTag(objectsNames[i]));
                                     case (experience.findSyncedObjectsByTag(objectsNames[i]).components.length > 0):
+                                        console.log("it works3");
                                         objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
                                     default:
                                         console.error("undefined tag name: " + objectsNames[i]);
