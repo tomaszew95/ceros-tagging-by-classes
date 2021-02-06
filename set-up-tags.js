@@ -20,15 +20,15 @@ var objects = new Array();
                     function pageChangedCallback(){
                         if(objectsNames.length > 0){
                             for(let i = 0; i<objectsNames.length; i++){
-                                console.log(experience.findComponentsByTag(objectsNames[0]).components.length > 0);
+                                console.log(experience.findLayersByTag(objectsNames[i]).components.length > 0);
                                 switch(true){
-                                    case (experience.findLayersByTag(objectsNames[i]).components.length > 0):
+                                    case isNaN(experience.findLayersByTag(objectsNames[i]).components.length > 0):
                                         console.log("it works1");
                                         objects.push(experience.findLayersByTag(objectsNames[i]));
-                                    case (experience.findComponentsByTag(objectsNames[i]).components.length > 0):
+                                    case isNaN(experience.findComponentsByTag(objectsNames[i]).components.length > 0):
                                         console.log("it works2");
                                         objects.push(experience.findComponentsByTag(objectsNames[i]));
-                                    case (experience.findSyncedObjectsByTag(objectsNames[i]).components.length > 0):
+                                    case isNaN(experience.findSyncedObjectsByTag(objectsNames[i]).components.length > 0):
                                         console.log("it works3");
                                         objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
                                     default:
