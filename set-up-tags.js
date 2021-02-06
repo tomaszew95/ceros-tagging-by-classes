@@ -1,6 +1,6 @@
 var tagsToClassses = document.getElementById("ceros-tags-to-classes-plugin");
 var objectsNames = tagsToClassses.getAttribute("objects-names").split(" ");
-var objects;
+var objects = new Array();
 (function(){ 
     'use strict'; 
     require.config({ 
