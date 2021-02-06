@@ -1,5 +1,5 @@
 var tagsToClassses = document.getElementById("ceros-tags-to-classes-plugin");
-var objectsNames = tagsToClassses.getAttribute("objects-names").split(" "); 
+var objectsNames = tagsToClassses.getAttribute("objects-names").split(" ");
 var objects;
 (function(){ 
     'use strict'; 
@@ -23,13 +23,13 @@ var objects;
                         
                         if(objectsNames.length > 0){
                             for(let objectName of objectsNames){
-                                if(experience.findLayersByTag(objectName.toString()).length > 0){
+                                if(experience.findLayersByTag(objectName.toString()).components.length > 0){
                                     objects.push(experience.findLayersByTag(objectName))
                                 }
-                                else if (experience.findComponentsByTag(objectName.toString()).length > 0){
+                                else if (experience.findComponentsByTag(objectName.toString()).components.length > 0){
                                     objects.push(experience.findComponentsByTag(objectName))
                                 }
-                                else if (experience.findSyncedObjectsByTag(objectName.toString()).length > 0){
+                                else if (experience.findSyncedObjectsByTag(objectName.toString()).components.length > 0){
                                     objects.push(experience.findSyncedObjectsByTag(objectName))
                                 }
                                 else(
