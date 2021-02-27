@@ -18,6 +18,7 @@ var objects = new Array();
 
                 if(objectsNames.length > 0){
                     console.log(experience.findLayersByTag(objectsNames[0]).layers.length);
+                    console.log(experience.findLayersByTag(objectsNames[1]).layers.length);
                     for(let i = 0; i<objectsNames.length; i++){
                         switch(true){
                             case (experience.findLayersByTag(objectsNames[i]).layers.length > 0):
