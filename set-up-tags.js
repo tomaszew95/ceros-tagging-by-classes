@@ -16,10 +16,10 @@ var objects = new Array();
             .done(function (experience) { 
                 window.myExperience = experience;
 
-                experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
-                let pageChangedCallback = ()=>{
+                // experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
+                // let pageChangedCallback = ()=>{
 
-                }
+                // }
                 if(objectsNames.length > 0){
                     for(let i = 0; i<objectsNames.length; i++){
                         switch(true){
