@@ -17,16 +17,15 @@ var objects = new Array();
                 window.myExperience = experience;
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
-                let pageChangedCallback = ()=>{
+                function pageChangedCallback(){
                     for(let i = 0; i<objects.length; i++){ 
                         objects[i].layers.forEach(function(component){ 
                             var id = '#' + component.id;
-                            console.log($(id));
                             $(id).addClass(objectsNames[i]); 
                         });  
                     }
                 }
-                
+
                 if(objectsNames.length > 0){
                     for(let i = 0; i<objectsNames.length; i++){
                         switch(true){
