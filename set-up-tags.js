@@ -43,7 +43,7 @@ var objects = new Array();
                 for(let i = 0; i<objects.length; i++){ 
                     objects[i].layers.forEach(function(component){ 
                         var id = '#' + component.id;
-                        console.log(id);
+                        console.log($(id));
                         $(id).addClass(objectsNames[i]); 
                     });  
                 }   
