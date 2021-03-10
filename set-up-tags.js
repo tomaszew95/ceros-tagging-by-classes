@@ -16,6 +16,16 @@ var objects = new Array();
             .done(function (experience) { 
                 window.myExperience = experience;
 
+                experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
+                    function pageChangedCallback(){
+                        for(var i = 0; i<objects.length; i++){
+                            objects[i].layers.forEach(function(component){
+                                var id = '#' + component.id;
+                                $(id).addClass(objectsNames[i]);
+                            }); 
+                        }
+                    }
+
                 if(objectsNames.length > 0){
                     for(let i = 0; i<objectsNames.length; i++){
                         switch(true){
@@ -34,17 +44,6 @@ var objects = new Array();
                 else{
                     console.error("array 'objectNames' is empty");
                 }
-                
-                experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
-                    function pageChangedCallback(){
-                        console.log("works1")
-                        for(let i = 0; i<objects.length; i++){ 
-                            objects[i].layers.forEach(function(component){ 
-                                var id = '#' + component.id;
-                                $(id).addClass(objectsNames[i]); 
-                            });  
-                        }
-                    }
             }) 
     }); 
 })();
