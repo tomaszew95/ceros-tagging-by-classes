@@ -20,6 +20,7 @@ var objects = new Array();
                     for(let i = 0; i<objectsNames.length; i++){
                         switch(true){
                             case (experience.findLayersByTag(objectsNames[i]).layers.length > 0):
+                                console.log("working");
                                 objects.push(experience.findLayersByTag(objectsNames[i]));
                                 break;
                             case (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
