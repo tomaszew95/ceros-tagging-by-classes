@@ -36,15 +36,15 @@ var objects = new Array();
                 }
                 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
-                function pageChangedCallback(){
-                    console.log("works1")
-                    for(let i = 0; i<objects.length; i++){ 
-                        objects[i].layers.forEach(function(component){ 
-                            var id = '#' + component.id;
-                            $(id).addClass(objectsNames[i]); 
-                        });  
+                    function pageChangedCallback(){
+                        console.log("works1")
+                        for(let i = 0; i<objects.length; i++){ 
+                            objects[i].layers.forEach(function(component){ 
+                                var id = '#' + component.id;
+                                $(id).addClass(objectsNames[i]); 
+                            });  
+                        }
                     }
-                }
             }) 
     }); 
 })();
