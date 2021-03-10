@@ -30,7 +30,7 @@ var objects = new Array();
                                 console.error("undefined tag name: " + objectsNames[i]);
                         }
                     }
-                    pageChangedCallback;
+                    pageChangedCallback();
                 }
                 else{
                     console.error("array 'objectNames' is empty");
