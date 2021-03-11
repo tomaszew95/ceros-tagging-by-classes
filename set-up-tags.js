@@ -15,8 +15,7 @@ var objects = new Array();
             }) 
             .done(function (experience) { 
                 window.myExperience = experience;
-
-                initialProcess();
+            
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
                 function pageChangedCallback(){
                     console.log("works2");
