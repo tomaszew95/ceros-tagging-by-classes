@@ -18,10 +18,10 @@ var objects = new Array();
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
                 function pageChangedCallback(){
-                    for(var i = 0; i<objects.length; i++){
-                        objects[i].layers.forEach(function(component){
+                    for(let y = 0; y<objects.length; y++){
+                        objects[y].layers.forEach(function(component){
                             var id = '#' + component.id;
-                            $(id).addClass(objectsNames[i]);
+                            $(id).addClass(objectsNames[y]);
                         }); 
                     }
                 }
