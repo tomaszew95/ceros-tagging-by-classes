@@ -16,8 +16,10 @@ var objects = new Array();
             .done(function (experience) { 
                 window.myExperience = experience;
 
+                initialProcess();
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
                 function pageChangedCallback(){
+                    console.log("works2");
                     for(let y = 0; y<objects.length; y++){
                         objects[y].layers.forEach(function(component){
                             var id = '#' + component.id;
@@ -26,22 +28,25 @@ var objects = new Array();
                     }
                 }
 
-                if(objectsNames.length > 0){
-                    for(let i = 0; i<objectsNames.length; i++){
-                        switch(true){
-                            case (experience.findLayersByTag(objectsNames[i]).layers.length > 0):
-                                objects.push(experience.findLayersByTag(objectsNames[i]));
-                                break;
-                            case (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
-                                objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
-                                break;
-                            default:
-                                console.error("undefined tag name: " + objectsNames[i]);
+                function initialProcess(){
+                    console.log("works1");
+                    if(objectsNames.length > 0){
+                        for(let i = 0; i<objectsNames.length; i++){
+                            switch(true){
+                                case (experience.findLayersByTag(objectsNames[i]).layers.length > 0):
+                                    objects.push(experience.findLayersByTag(objectsNames[i]));
+                                    break;
+                                case (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
+                                    objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
+                                    break;
+                                default:
+                                    console.error("undefined tag name: " + objectsNames[i]);
+                            }
                         }
                     }
-                }
-                else{
-                    console.error("array 'objectNames' is empty");
+                    else{
+                        console.error("array 'objectNames' is empty");
+                    }
                 }
             }) 
     }); 
