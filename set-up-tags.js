@@ -17,14 +17,14 @@ var objects = new Array();
                 window.myExperience = experience;
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
-                    function pageChangedCallback(){
-                        for(var i = 0; i<objects.length; i++){
-                            objects[i].layers.forEach(function(component){
-                                var id = '#' + component.id;
-                                $(id).addClass(objectsNames[i]);
-                            }); 
-                        }
+                function pageChangedCallback(){
+                    for(var i = 0; i<objects.length; i++){
+                        objects[i].layers.forEach(function(component){
+                            var id = '#' + component.id;
+                            $(id).addClass(objectsNames[i]);
+                        }); 
                     }
+                }
 
                 if(objectsNames.length > 0){
                     for(let i = 0; i<objectsNames.length; i++){
@@ -39,7 +39,6 @@ var objects = new Array();
                                 console.error("undefined tag name: " + objectsNames[i]);
                         }
                     }
-                    pageChangedCallback();
                 }
                 else{
                     console.error("array 'objectNames' is empty");
