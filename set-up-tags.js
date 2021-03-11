@@ -2,40 +2,33 @@ var tagsToClassses = document.getElementById("ceros-tags-to-classes-plugin");
 var objectsNames = tagsToClassses.getAttribute("objects-names").split(" ");
 var objects = new Array();
 (function(){
-    'use strict'; 
-    require.config({ 
-        paths: { 
-            CerosSDK: '//sdk.ceros.com/standalone-player-sdk-v5.min' 
-        } 
-    }); 
-    require(['CerosSDK'], function (CerosSDK) { 
-        CerosSDK.findExperience() 
-            .fail(function (error) { 
-                console.error(error); 
-            }) 
+    'use strict';
+    require.config({
+        paths: {
+            CerosSDK: '//sdk.ceros.com/standalone-player-sdk-v5.min'
+        }
+    });
+    require(['CerosSDK'], function (CerosSDK) {
+        CerosSDK.findExperience()
+            .fail(function (error) {
+                console.error(error);
+            })
             .done(function (experience) {
                 window.myExperience = experience;
 
+                initialProcess();
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
                 function pageChangedCallback(){
-                    var parallaxName  = "parallax";
-                    var parallaxGroupName  = "parallax-group";
-                    var parallax = experience.findComponentsByTag(parallaxName);
-                    var parallaxGroup = experience.findLayersByTag(parallaxGroupName);
-
-                    var objectsNames = [parallaxName, parallaxName],
-                        objects = [parallax, parallaxGroup];
-
-                    for(var i = 0; i<objects.length; i++){
-                        objects[i].layers.forEach(function(component){
+                    console.log("works2");
+                    for(let y = 0; y<objects.length; y++){
+                        objects[y].layers.forEach(function(component){
                             var id = '#' + component.id;
-                            $(id).addClass(objectsNames[i]);
+                            $(id).addClass(objectsNames[y]);
                         }); 
-                    }  
-                    console.log("pageContainer");
+                    }
                 }
-            }) 
-    }); 
+            })
+    });
 })();
 
 function initialProcess(){
@@ -57,4 +50,4 @@ function initialProcess(){
     else{
         console.error("array 'objectNames' is empty");
     }
-}
+};
