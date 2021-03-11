@@ -13,18 +13,26 @@ var objects = new Array();
             .fail(function (error) { 
                 console.error(error); 
             }) 
-            .done(function (experience) { 
+            .done(function (experience) {
                 window.myExperience = experience;
-            
+
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
                 function pageChangedCallback(){
-                    console.log("works2");
-                    for(let y = 0; y<objects.length; y++){
-                        objects[y].layers.forEach(function(component){
+                    var parallaxName  = "parallax";
+                    var parallaxGroupName  = "parallax-group";
+                    var parallax = experience.findComponentsByTag(parallaxName);
+                    var parallaxGroup = experience.findLayersByTag(parallaxGroupName);
+
+                    var objectsNames = [parallaxName, parallaxName],
+                        objects = [parallax, parallaxGroup];
+
+                    for(var i = 0; i<objects.length; i++){
+                        objects[i].layers.forEach(function(component){
                             var id = '#' + component.id;
-                            $(id).addClass(objectsNames[y]);
+                            $(id).addClass(objectsNames[i]);
                         }); 
-                    }
+                    }  
+                    console.log("pageContainer");
                 }
             }) 
     }); 
