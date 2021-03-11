@@ -19,7 +19,6 @@ var objects = new Array();
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
                 function pageChangedCallback(){
-                    console.log("pageChange");
                     for(let y = 0; y<objects.length; y++){
                         objects[y].layers.forEach(function(component){
                             var id = '#' + component.id;
@@ -29,7 +28,6 @@ var objects = new Array();
                 }
 
                 function initialProcess(){
-                    console.log("initial");
                     if(objectsNames.length > 0){
                         for(let i = 0; i<objectsNames.length; i++){
                             switch(true){
