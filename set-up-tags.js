@@ -27,27 +27,27 @@ var objects = new Array();
                         }); 
                     }
                 }
-
-                function initialProcess(){
-                    console.log("works1");
-                    if(objectsNames.length > 0){
-                        for(let i = 0; i<objectsNames.length; i++){
-                            switch(true){
-                                case (experience.findLayersByTag(objectsNames[i]).layers.length > 0):
-                                    objects.push(experience.findLayersByTag(objectsNames[i]));
-                                    break;
-                                case (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
-                                    objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
-                                    break;
-                                default:
-                                    console.error("undefined tag name: " + objectsNames[i]);
-                            }
-                        }
-                    }
-                    else{
-                        console.error("array 'objectNames' is empty");
-                    }
-                }
             }) 
     }); 
 })();
+
+function initialProcess(){
+    console.log("works1");
+    if(objectsNames.length > 0){
+        for(let i = 0; i<objectsNames.length; i++){
+            switch(true){
+                case (experience.findLayersByTag(objectsNames[i]).layers.length > 0):
+                    objects.push(experience.findLayersByTag(objectsNames[i]));
+                    break;
+                case (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
+                    objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
+                    break;
+                default:
+                    console.error("undefined tag name: " + objectsNames[i]);
+            }
+        }
+    }
+    else{
+        console.error("array 'objectNames' is empty");
+    }
+}
