@@ -39,6 +39,7 @@ var objects = new Array();
                                     break;
                                 default:
                                     console.error("undefined tag name: " + objectsNames[i]);
+                                    continue;
                             }
                         }
                     }
