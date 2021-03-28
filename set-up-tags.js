@@ -37,9 +37,9 @@ var objects = new Array();
                                 case (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
                                     objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
                                     break;
-                                default:
-                                    console.error("undefined tag name: " + objectsNames[i]);
-                                    continue;
+                            }
+                            if((experience.findLayersByTag(objectsNames[i]).layers.length <= 0) || (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length <= 0)){
+                                console.warn("unused tag name: " + objectsNames[i]);
                             }
                         }
                     }
