@@ -15,8 +15,10 @@ var objects = new Array();
             }) 
             .done(function (experience) { 
                 window.myExperience = experience;
-                let emptyObject = {
-                    layers: []
+                class emptyObject {
+                    constructor(layers){
+                        this.layers = layers;
+                    }
                 };
                 initialProcess();
 
