@@ -28,7 +28,7 @@ var objects = new Array();
                 }
 
                 function initialProcess(){
-                    if(objectsNames[0] != '""'){
+                    if(objectsNames[0] != ""){
                         for(let i = 0; i<objectsNames.length; i++){
                             if(experience.findLayersByTag(objectsNames[i]).layers.length > 0){
                                 objects.push(experience.findLayersByTag(objectsNames[i]));
