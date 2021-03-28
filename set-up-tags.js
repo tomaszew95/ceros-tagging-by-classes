@@ -15,11 +15,7 @@ var objects = new Array();
             }) 
             .done(function (experience) { 
                 window.myExperience = experience;
-                const emptyObject = {
-                    layers: []
-                };
-                var newObj = new emptyObject;
-                console.log(newObj);
+                console.log({layers: []});
                 initialProcess();
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
@@ -44,7 +40,7 @@ var objects = new Array();
                                 continue;
                             }
                             console.warn("unused tag name: " + objectsNames[i]);
-                            objects.push(new emptyObject);
+                            objects.push({layers: []});
                         }
                     }
                     else{
