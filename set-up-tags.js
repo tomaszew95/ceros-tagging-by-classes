@@ -15,14 +15,17 @@ var objects = new Array();
             }) 
             .done(function (experience) { 
                 window.myExperience = experience;
+                let emptyObject = {
+                    layers: []
+                };
                 initialProcess();
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
                 function pageChangedCallback(){
-                    for(let y = 0; y<objects.length; y++){
-                        objects[y].layers.forEach(function(component){
+                    for(let i = 0; i<objects.length; i++){
+                        objects[i].layers.forEach(function(component){
                             var id = '#' + component.id;
-                            $(id).addClass(objectsNames[y]);
+                            $(id).addClass(objectsNames[i]);
                         }); 
                     }
                 }
@@ -39,7 +42,7 @@ var objects = new Array();
                                 continue;
                             }
                             console.warn("unused tag name: " + objectsNames[i]);
-                            objects.push([]);
+                            objects.push(new emptyObject);
                         }
                     }
                     else{
