@@ -39,7 +39,7 @@ var objects = new Array();
                                 continue;
                             }
                             console.warn("unused tag name: " + objectsNames[i]);
-                            continue;
+                            objects.push([]);
                         }
                     }
                     else{
