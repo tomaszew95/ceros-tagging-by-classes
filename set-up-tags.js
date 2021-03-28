@@ -15,10 +15,8 @@ var objects = new Array();
             }) 
             .done(function (experience) { 
                 window.myExperience = experience;
-                class emptyObject {
-                    constructor(layers){
-                        this.layers = layers;
-                    }
+                const emptyObject = {
+                    layers: []
                 };
                 initialProcess();
 
@@ -45,7 +43,6 @@ var objects = new Array();
                             }
                             console.warn("unused tag name: " + objectsNames[i]);
                             objects.push(new emptyObject);
-                            objects[i].layers = [];
                         }
                     }
                     else{
