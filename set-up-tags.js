@@ -19,6 +19,7 @@ var objects = new Array();
                     constructor(layers){
                         this.layers = layers;
                     }
+                    layers = [];
                 };
                 initialProcess();
 
