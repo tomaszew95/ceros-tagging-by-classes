@@ -19,7 +19,6 @@ var objects = new Array();
                     constructor(layers){
                         this.layers = layers;
                     }
-                    layers = [];
                 };
                 initialProcess();
 
@@ -46,6 +45,7 @@ var objects = new Array();
                             }
                             console.warn("unused tag name: " + objectsNames[i]);
                             objects.push(new emptyObject);
+                            objects[i].layers = [];
                         }
                     }
                     else{
