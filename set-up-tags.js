@@ -38,10 +38,7 @@ var objects = new Array();
                                 objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
                                 continue;
                             }
-                            else{
-                                console.warn("unused tag name: " + objectsNames[i]);
-                                continue;
-                            }
+                            console.warn("unused tag name: " + objectsNames[i]);    
                         }
                     }
                     else{
