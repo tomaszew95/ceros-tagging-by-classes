@@ -18,6 +18,8 @@ var objects = new Array();
                 const emptyObject = {
                     layers: []
                 };
+                var newObj = new emptyObject;
+                console.log(newObj);
                 initialProcess();
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallback);
