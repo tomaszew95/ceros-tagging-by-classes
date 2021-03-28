@@ -30,21 +30,21 @@ var objects = new Array();
                 function initialProcess(){
                     if(objectsNames.length > 0){
                         for(let i = 0; i<objectsNames.length; i++){
-                            switch(true){
-                                case (experience.findLayersByTag(objectsNames[i]).layers.length > 0):
-                                    objects.push(experience.findLayersByTag(objectsNames[i]));
-                                    break;
-                                case (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0):
-                                    objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
-                                    break;
+                            if(experience.findLayersByTag(objectsNames[i]).layers.length > 0){
+                                objects.push(experience.findLayersByTag(objectsNames[i]));
+                                continue;
                             }
-                            if((experience.findLayersByTag(objectsNames[i]).layers.length <= 0) && (experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length <= 0)){
+                            else if(experience.findSyncedObjectsByTag(objectsNames[i]).syncedObjects.length > 0){
+                                objects.push(experience.findSyncedObjectsByTag(objectsNames[i]));
+                                continue;
+                            }
+                            else{
                                 console.warn("unused tag name: " + objectsNames[i]);
                             }
                         }
                     }
                     else{
-                        console.error("array 'objectNames' is empty");
+                        console.warn("array 'objectNames' is empty");
                     }
                 }
             }) 
