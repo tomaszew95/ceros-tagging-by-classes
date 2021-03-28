@@ -40,6 +40,7 @@ var objects = new Array();
                             }
                             else{
                                 console.warn("unused tag name: " + objectsNames[i]);
+                                continue;
                             }
                         }
                     }
